@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Switcher</title>
+    <link id="favicon" rel="icon" href="black-favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Favicon Switcher</h1>
+    <button id="resetButton">Reset Favicon</button>
+
+    <script>
+        const blackFavicon = 'black-favicon.ico';
+        const redFavicon = 'red-favicon.ico';
+        const faviconElement = document.getElementById('favicon');
+        const resetButton = document.getElementById('resetButton');
+        let switchedToRed = false;
+
+        // Function to switch favicon to red
+        function switchToRedFavicon() {
+            faviconElement.href = redFavicon;
+            switchedToRed = true;
+        }
+
+        // Function to reset favicon back to black
+        function resetFavicon() {
+            faviconElement.href = blackFavicon;
+            switchedToRed = false;
+        }
+
+        // Listen for button click to reset favicon
+        resetButton.addEventListener('click', resetFavicon);
+
+        // Function to check the top of every minute
+        function checkTopOfMinute() {
+            const currentDate = new Date();
+            const seconds = currentDate.getSeconds();
+
+            // If it's the top of the minute (seconds == 0) and hasn't switched to red yet
+            if (seconds === 0 && !switchedToRed) {
+                switchToRedFavicon();
+            }
+        }
+
+        // Run checkTopOfMinute every second
+        setInterval(checkTopOfMinute, 1000);
+    </script>
+
+</body>
+</html>
