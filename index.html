@@ -6,22 +6,29 @@
     <title>Favicon Switcher</title>
     <link id="favicon" rel="icon" href="black-favicon.ico" type="image/x-icon">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #1A1D22;
         }
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            width: 1000px;
+            height: 600px;
+            font-size: 100px;
             cursor: pointer;
+            color: #F2EDFF;
+            background-color: #8859FF;
+            border-radius: 50px;
         }
     </style>
 </head>
 <body>
-
-    <h1>Favicon Switcher</h1>
-    <button id="resetButton">Reset Favicon</button>
+    <button id="resetButton">Reset</button>
 
     <script>
         const blackFavicon = 'black-favicon.ico';
